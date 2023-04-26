@@ -5,6 +5,7 @@ contract transaction{
     mapping(address => bool) public carDealer;
     mapping(address => bool) public carMaintenance;
     mapping(address => bool) public secondHandCarSale;
+    mapping(string => uint) public transactionCount;
 
     struct transactionDetails{
         string VIN;
@@ -57,6 +58,7 @@ contract transaction{
     }
 
     function newCar(string memory Vin, string memory Date, string memory Location, string memory Details) public restrictedToCarDealer {
+        allTransactions = carHistory[Vin];
         transactionDetails memory BD = transactionDetails({
             VIN: Vin,
             date: Date,
@@ -65,9 +67,11 @@ contract transaction{
         });
         allTransactions.push(BD);
         carHistory[Vin] = allTransactions;
+        transactionCount[Vin] = 1;
     }
 
     function maintenance(string memory Vin, string memory Date, string memory Location, string memory Details) public restrictedToCarMaintenance {
+        allTransactions = carHistory[Vin];
         transactionDetails memory BD = transactionDetails({
             VIN: Vin,
             date: Date,
@@ -76,9 +80,11 @@ contract transaction{
         });
         allTransactions.push(BD);
         carHistory[Vin] = allTransactions;
+        transactionCount[Vin]++;
     }
 
     function changeOwner(string memory Vin, string memory Date, string memory Location, string memory Details) public restrictedToSecondHandCarSale{
+        allTransactions = carHistory[Vin];
         transactionDetails memory BD = transactionDetails({
             VIN: Vin,
             date: Date,
@@ -87,10 +93,10 @@ contract transaction{
         });
         allTransactions.push(BD);
         carHistory[Vin] = allTransactions;
+        transactionCount[Vin]++;
     }
 
     function displayAll(string memory Vin) public view returns (transactionDetails[] memory){
         return carHistory[Vin];
     }
-
 }

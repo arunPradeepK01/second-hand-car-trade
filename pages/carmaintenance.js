@@ -76,7 +76,7 @@ class RequestNew extends Component {
               <textarea
                 value={this.state.maintenanceDetails}
                 onChange={(event) =>
-                  this.setState({ nmaintenanceDetails: event.target.value })
+                  this.setState({ maintenanceDetails: event.target.value })
                 }
               ></textarea>
             </div>

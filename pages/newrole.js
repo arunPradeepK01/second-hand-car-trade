@@ -65,7 +65,7 @@ class CampaignNew extends Component {
             >
               <option value="">Role</option>
               <option value="0">Admin</option>
-              <option value="1">Car Dealer</option>
+              <option value="1">Car Retailer</option>
               <option value="2">Car Maintenance</option>
               <option value="3">Second Hand Car Trade</option>
             </select>

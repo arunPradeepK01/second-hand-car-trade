@@ -8,7 +8,7 @@ const Header = () => {
       <Link route="/">
         <a className="item">BUY SELL Administration</a>
       </Link>
-      <Menu.Item>
+      {/* <Menu.Item>
         <div class="ui search">
           <div class="ui icon input" style={{ width: "100%" }}>
             <input class="prompt" type="text" placeholder="Search Car" />
@@ -16,11 +16,11 @@ const Header = () => {
           </div>
           <div class="results"></div>
         </div>
-      </Menu.Item>
+      </Menu.Item> */}
       <Menu.Menu position="right">
-        <Link route="/">
+        {/* <Link route="/">
           <a className="item">All Transations</a>
-        </Link>
+        </Link> */}
 
         <Link route="/newrole">
           <a className="item">+ New Role</a>

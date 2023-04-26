@@ -30,6 +30,8 @@ class RequestNew extends Component {
         )
         .send({ from: accounts[0], gas: "1400000" });
 
+      // console.log(await Transaction.methods.displayAll("aaa").call());
+
       Router.pushRoute("/");
     } catch (err) {
       this.setState({ errorMessage: err.message });
@@ -70,6 +72,7 @@ class RequestNew extends Component {
               }
             />
           </Form.Field>
+
           <Form.Field>
             <label>New Car Details</label>
             <div className="field">
@@ -81,6 +84,7 @@ class RequestNew extends Component {
               ></textarea>
             </div>
           </Form.Field>
+          
           <Message error header="Oops!" content={this.state.errorMessage} />
           <Button primary loading={this.state.loading}>
             Create!
